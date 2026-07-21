@@ -1,0 +1,341 @@
+zabbix_export:
+  version: '7.4'
+  template_groups:
+    - uuid: 3671040160004000a000000000000000
+      name: 'Templates/Network devices'
+  templates:
+    - uuid: 4a2b3c4d5e6f4123a4567890abcdef01
+      template: 'MikroTik Custom Dashboard'
+      name: 'MikroTik Custom Dashboard'
+      vendor:
+        name: TyranR
+        version: '1.0'
+      templates:
+        - name: 'MikroTik hEX by SNMP'
+        - name: 'RouterOS 7 BGP by external check'
+      groups:
+        - name: 'Templates/Network devices'
+      tags:
+        - tag: class
+          value: hardware
+        - tag: component
+          value: dashboard
+        - tag: protocol
+          value: snmp
+        - tag: target
+          value: mikrotik
+      dashboards:
+        - uuid: 8f7e6d5c4b3a4f129876543210fedcba
+          name: 'MikroTik System Overview'
+          pages:
+            - name: Main
+              widgets:
+                - type: item
+                  name: 'Firmware Version'
+                  width: '16'
+                  fields:
+                    - type: ITEM
+                      name: itemid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        key: system.hw.firmware
+                    - type: INTEGER
+                      name: show.0
+                      value: '2'
+                    - type: INTEGER
+                      name: show.1
+                      value: '3'
+                    - type: INTEGER
+                      name: show.2
+                      value: '4'
+                - type: svggraph
+                  name: 'CPU Temperature'
+                  'y': '2'
+                  width: '18'
+                  height: '4'
+                  fields:
+                    - type: INTEGER
+                      name: ds.0.color_palette
+                      value: '0'
+                    - type: STRING
+                      name: ds.0.items.0
+                      value: '*Temperature*'
+                    - type: INTEGER
+                      name: legend
+                      value: '0'
+                    - type: STRING
+                      name: reference
+                      value: MMHHL
+                    - type: INTEGER
+                      name: righty
+                      value: '0'
+                - type: graphprototype
+                  'y': '6'
+                  width: '45'
+                  height: '5'
+                  fields:
+                    - type: INTEGER
+                      name: columns
+                      value: '1'
+                    - type: ITEM_PROTOTYPE
+                      name: itemid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        key: 'vfs.fs.pused[hrStorageSize.{#SNMPINDEX}]'
+                    - type: STRING
+                      name: reference
+                      value: JAPNV
+                    - type: INTEGER
+                      name: source_type
+                      value: '3'
+                - type: graph
+                  name: 'Memory utilization'
+                  'y': '11'
+                  width: '36'
+                  height: '5'
+                  fields:
+                    - type: GRAPH
+                      name: graphid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        name: 'Mikrotik: Memory utilization'
+                    - type: STRING
+                      name: reference
+                      value: KKLXR
+                - type: problems
+                  'y': '16'
+                  width: '72'
+                  height: '5'
+                  fields:
+                    - type: STRING
+                      name: reference
+                      value: LGROD
+                    - type: INTEGER
+                      name: severities.0
+                      value: '1'
+                    - type: INTEGER
+                      name: severities.1
+                      value: '2'
+                    - type: INTEGER
+                      name: severities.2
+                      value: '3'
+                    - type: INTEGER
+                      name: severities.3
+                      value: '4'
+                    - type: INTEGER
+                      name: severities.4
+                      value: '5'
+                - type: item
+                  name: 'Hardware Model'
+                  x: '16'
+                  width: '24'
+                  fields:
+                    - type: ITEM
+                      name: itemid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        key: system.hw.model
+                    - type: INTEGER
+                      name: show.0
+                      value: '2'
+                    - type: INTEGER
+                      name: show.1
+                      value: '3'
+                    - type: INTEGER
+                      name: show.2
+                      value: '4'
+                - type: graphprototype
+                  x: '18'
+                  'y': '2'
+                  width: '54'
+                  height: '4'
+                  fields:
+                    - type: GRAPH_PROTOTYPE
+                      name: graphid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        name: '#{#SNMPINDEX}: CPU utilization'
+                    - type: STRING
+                      name: reference
+                      value: XMKXA
+                - type: graph
+                  x: '36'
+                  'y': '11'
+                  width: '36'
+                  height: '5'
+                  fields:
+                    - type: GRAPH
+                      name: graphid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        name: 'Memory usage'
+                    - type: STRING
+                      name: reference
+                      value: UCPUO
+                - type: item
+                  name: 'Serial Number'
+                  x: '40'
+                  width: '18'
+                  fields:
+                    - type: ITEM
+                      name: itemid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        key: system.hw.serialnumber
+                    - type: INTEGER
+                      name: show.0
+                      value: '2'
+                    - type: INTEGER
+                      name: show.1
+                      value: '3'
+                    - type: INTEGER
+                      name: show.2
+                      value: '4'
+                - type: graphprototype
+                  x: '45'
+                  'y': '6'
+                  width: '27'
+                  height: '5'
+                  fields:
+                    - type: INTEGER
+                      name: columns
+                      value: '1'
+                    - type: GRAPH_PROTOTYPE
+                      name: graphid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        name: 'Disk-{#SNMPINDEX}: Disk space usage'
+                    - type: STRING
+                      name: reference
+                      value: LTGTL
+                - type: item
+                  name: Uptime
+                  x: '58'
+                  width: '14'
+                  fields:
+                    - type: INTEGER
+                      name: decimal_places
+                      value: '0'
+                    - type: ITEM
+                      name: itemid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        key: 'system.hw.uptime[hrSystemUptime.0]'
+                    - type: INTEGER
+                      name: show.0
+                      value: '2'
+                    - type: INTEGER
+                      name: show.1
+                      value: '3'
+                    - type: INTEGER
+                      name: show.2
+                      value: '4'
+            - name: BGP
+              widgets:
+                - type: honeycomb
+                  name: 'Session uptime'
+                  width: '14'
+                  height: '5'
+                  fields:
+                    - type: STRING
+                      name: items.0
+                      value: '*BGP*uptime*'
+                    - type: STRING
+                      name: primary_label
+                      value: '{ITEM.NAME}'
+                    - type: STRING
+                      name: reference
+                      value: JGALB
+                    - type: INTEGER
+                      name: secondary_label_decimal_places
+                      value: '0'
+                    - type: STRING
+                      name: thresholds.0.color
+                      value: 81D4FA
+                    - type: STRING
+                      name: thresholds.0.threshold
+                      value: '1'
+                - type: honeycomb
+                  name: 'Session State'
+                  x: '14'
+                  width: '15'
+                  height: '5'
+                  fields:
+                    - type: STRING
+                      name: items.0
+                      value: '*BGP*session state*'
+                    - type: STRING
+                      name: primary_label
+                      value: '{ITEM.NAME}'
+                    - type: INTEGER
+                      name: primary_label_units_show
+                      value: '0'
+                    - type: STRING
+                      name: reference
+                      value: KGJHD
+                    - type: INTEGER
+                      name: secondary_label_decimal_places
+                      value: '0'
+                    - type: STRING
+                      name: thresholds.0.color
+                      value: E65660
+                    - type: STRING
+                      name: thresholds.0.threshold
+                      value: '0'
+                    - type: STRING
+                      name: thresholds.1.color
+                      value: 00FF00
+                    - type: STRING
+                      name: thresholds.1.threshold
+                      value: '1'
+                - type: graphprototype
+                  x: '29'
+                  width: '43'
+                  height: '5'
+                  fields:
+                    - type: INTEGER
+                      name: columns
+                      value: '1'
+                    - type: GRAPH_PROTOTYPE
+                      name: graphid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        name: 'BGP {#BGP_NAME} [AS{#BGP_REMOTE_AS}]: received prefix count'
+                    - type: STRING
+                      name: reference
+                      value: DDSBJ
+            - name: Interfaces
+              widgets:
+                - type: graphprototype
+                  width: '71'
+                  height: '15'
+                  fields:
+                    - type: GRAPH_PROTOTYPE
+                      name: graphid.0
+                      value:
+                        host: 'MikroTik Custom Dashboard'
+                        name: 'Interface {#IFNAME}({#IFALIAS}): Network traffic'
+                    - type: STRING
+                      name: reference
+                      value: KQSSG
+                    - type: INTEGER
+                      name: rows
+                      value: '3'
+  graphs:
+    - uuid: ae699551c3414d12bab443f5aa209817
+      name: 'Memory usage'
+      ymin_type_1: FIXED
+      graph_items:
+        - drawtype: DASHED_LINE
+          color: FF0000
+          calc_fnc: ALL
+          item:
+            host: 'MikroTik Custom Dashboard'
+            key: 'vm.memory.total[hrStorageSize.Memory]'
+        - sortorder: '1'
+          drawtype: GRADIENT_LINE
+          color: 4CAF50
+          calc_fnc: ALL
+          item:
+            host: 'MikroTik Custom Dashboard'
+            key: 'vm.memory.used[hrStorageUsed.Memory]'
