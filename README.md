@@ -66,9 +66,9 @@ This template acts as a **Dashboard Wrapper / Aggregator Template**. It links to
 
 ## Screenshots
 
-![Overview dashboard](docs/main.png)
-![BGP](docs/bgp.png)
-![Network](docs/network.png)
+![Overview dashboard](docs/main.jpg)
+![BGP](docs/bgp.jpg)
+![Network](docs/network.jpg)
 
 ---
 
