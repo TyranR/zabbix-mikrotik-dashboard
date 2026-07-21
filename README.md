@@ -222,6 +222,17 @@ Ensure that your Zabbix server has the parent templates imported:
 
 ---
 
+## Project stats
+
+![GitHub stars](https://img.shields.io/github/stars/TyranR/zabbix-mikrotik-dashboard?style=social)
+![GitHub forks](https://img.shields.io/github/forks/TyranR/zabbix-mikrotik-dashboard?style=social)
+![GitHub issues](https://img.shields.io/github/issues/TyranR/zabbix-mikrotik-dashboard)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/TyranR/zabbix-mikrotik-dashboard)
+
+---
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+TL;DR: Free to use for personal and commercial projects. Attribution appreciated but not required.
